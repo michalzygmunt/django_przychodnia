@@ -1,0 +1,17 @@
+<h2>{{ object.nazwa }}</h2>
+<table class="table">
+  <tr><td>Opis:</td><td>{{ object.opis }}</td></tr>
+
+  <tr><td>Cena:</td><td>{{ object.cena }}</td></tr>
+  <tr><td>Dodano:</td><td>{{ object.data }}</td></tr>
+    <tr><td>Dodano:</td><td>{{ object.specjalizacje }}</td></tr>
+
+</table>
+<h3>Godziny przyjec:</h3>
+
+
+{% for skl in godziny %}
+    <li>{{ skl.nazwa }}
+
+    </li>
+{% endfor %}

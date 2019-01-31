@@ -1,0 +1,33 @@
+<h1>Lista naszych lekarzy</h1>
+
+
+
+
+<table class="table">
+<tr><th>Lp.</th><th>Nazwa</th><th>Kiedy dolaczyl</th><th>Operacje</th></tr>
+{% for p in object_list %}
+<tr>
+  <td>{{ forloop.counter }}</td>
+  <td><a href="{% url 'przychodnia:info' p.id %}">{{ p.nazwa }}</td>
+  <td><a href="{% url 'przychodnia:godzinki' p.id %}"> godziny przyjec </td>
+  <td>
+    {% if user.is_superuser %}
+
+      <a href="{% url 'przychodnia:usun' p.id %}">Usuń</a>
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</table>
+
+{% if user.is_superuser %}
+    <li><a href="{% url 'przychodnia:dodaj' %}">Dodaj lekarza</a></li>
+{% endif %}
+
+{% for skl in godziny %}
+    <li>{{ skl.nazwa }}
+
+    </li>
+{% endfor %}
+
+<a class="btn btn-primary" href="/">wroc</a>

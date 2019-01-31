@@ -1,0 +1,21 @@
+<h1>Wprowadz lekarza</h1>
+
+<form action="." method="post" id="pform">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <h3>Specjalizacje:</h3>
+  {{ specjalizacja.management_form }}
+  {{ specjalizacja.non_form_errors }}
+  {% for skl in specjalizacja %}
+  {{ skl.id }}
+    <div class="{{ specjalizacja.prefix }}">
+      <span>{{ forloop.counter }})&nbsp;</span>
+      {{ skl.nazwa.errors }}
+      {{ skl.dzieci.errors }}
+      {{ skl.nazwa.label_tag }} {{ skl.nazwa }}
+      {{ skl.dzieci.label_tag }} {{ skl.dzieci }}
+    </div>
+  {% endfor %}
+  <br /><input type="submit" value="Zapisz">
+</form>

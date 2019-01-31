@@ -1,0 +1,10 @@
+<h1>Usuwanie lekarza</h1>
+<form action="." method="post">
+  {% csrf_token %}
+  <p>Czy na pewno chcesz usunąć tego lekarza?:<br />"{{ object.nazwa }}"?</p>
+<h4>Informacje o lekarzu</h4>
+    <p>{{  object.opis}}</p>
+
+
+  <button type="submit">Usuń</button>
+</form>

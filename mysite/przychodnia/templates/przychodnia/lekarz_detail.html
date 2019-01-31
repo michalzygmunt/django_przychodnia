@@ -1,0 +1,32 @@
+<h2>{{ object.nazwa }}</h2>
+<table class="table">
+  <tr><td>Opis:</td><td>{{ object.opis }}</td></tr>
+
+  <tr><td>Cena:</td><td>{{ object.cena }}</td></tr>
+  <tr><td>Dodano:</td><td>{{ object.data }}</td></tr>
+
+
+</table>
+<p>&nbsp;</p>
+
+{% for skl in specjalizacje %}
+    <li>{{ skl.nazwa }}
+        ({{ skl.dzieci }})
+    </li>
+{% endfor %}
+
+{% for skl in godziny %}
+    <li>{{ skl.godzina }}
+  w godzinach:   <b>{{ skl.nazwa }}</b>
+
+
+    </li>
+{% endfor %}
+
+
+
+
+
+
+
+
